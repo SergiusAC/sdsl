@@ -1,7 +1,5 @@
 package github.sergiusac.sdsl.structures;
 
-import java.util.Objects;
-
 /**
  * Created by Sergey Cheen on 9/9/17.
  */
