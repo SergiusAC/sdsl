@@ -1,5 +1,7 @@
 package github.sergiusac.sdsl.structures;
 
+import java.util.Objects;
+
 /**
  * Created by Sergey Cheen on 9/9/17.
  */
@@ -10,6 +12,8 @@ public class Node<T> {
     private Node<T> prev;
 
     public Node() {
+        item = null;
+        next = prev = null;
     }
 
     public Node(T item) {
@@ -45,5 +49,21 @@ public class Node<T> {
 
     public void setPrev(Node<T> prev) {
         this.prev = prev;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Node<?> node = (Node<?>) o;
+
+        return item != null ? item.equals(node.item) : node.item == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return item != null ? item.hashCode() : 0;
     }
 }
