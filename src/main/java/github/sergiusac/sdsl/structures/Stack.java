@@ -43,7 +43,7 @@ public class Stack<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return null;
+        return new StackIterator();
     }
 
     private class StackIterator implements Iterator<T> {
