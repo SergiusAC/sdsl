@@ -34,12 +34,8 @@ public class Queue<T> implements Iterable<T> {
         return item;
     }
 
-    public T getFirstItem() {
+    public T peek() {
         return list.getHead().getItem();
-    }
-
-    public T getLastItem() {
-        return list.getTail().getItem();
     }
 
     @Override
