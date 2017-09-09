@@ -26,15 +26,12 @@ public class LinkedList<T> {
     }
 
     public void addFront(T item) {
-        Node<T> node = new Node<>(item);
         if (isEmpty()) {
-            head = node;
+            head = new Node<>(item);;
             tail = head;
         } else {
             Node<T> oldHead = head;
-            head = node;
-            head.setNext(oldHead);
-            head.setPrev(null);
+            head = new Node<>(item, oldHead, null);;
             oldHead.setPrev(head);
         }
         size++;
@@ -58,7 +55,9 @@ public class LinkedList<T> {
     public void removeFront() {
         if (!isEmpty()) {
             head = head.getNext();
-            head.setPrev(null);
+            if (head != null) {
+                head.setPrev(null);
+            }
             size--;
         }
     }
@@ -66,7 +65,9 @@ public class LinkedList<T> {
     public void removeBack() {
         if (!isEmpty()) {
             tail = tail.getPrev();
-            tail.setNext(null);
+            if (tail != null) {
+                tail.setNext(null);
+            }
             size--;
         }
     }
