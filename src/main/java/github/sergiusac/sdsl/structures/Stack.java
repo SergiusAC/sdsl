@@ -30,6 +30,7 @@ public class Stack<T> implements Iterable<T> {
     public T pop() {
         T item = list.getHead().getItem();
         list.removeFront();
+        size--;
         return item;
     }
 

@@ -30,6 +30,7 @@ public class Queue<T> implements Iterable<T> {
     public T dequeue() {
         T item = list.getHead().getItem();
         list.removeFront();
+        size--;
         return item;
     }
 
