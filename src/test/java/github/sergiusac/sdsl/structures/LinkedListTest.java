@@ -123,4 +123,21 @@ public class LinkedListTest {
         new LinkedListTest().getSize();
     }
 
+    @Test
+    public void iterator() throws Exception {
+        LinkedList<String> list = new LinkedList<>();
+        list.addFront("One");
+        list.addBack("Two");
+        list.addBack("Three");
+        list.addBack("Four");
+        list.addFront("Zero");
+        String[] words = new String[5];
+        int i = 0;
+        for (String s : list) {
+            words[i] = s;
+            i++;
+        }
+        assertArrayEquals(new String[] {"Zero", "One", "Two", "Three", "Four"}, words);
+    }
+
 }
