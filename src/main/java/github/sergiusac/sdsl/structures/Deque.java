@@ -46,17 +46,21 @@ public class Deque<T> implements Iterable<T> {
         return item;
     }
 
-    public T getFirstItem() {
+    public T peekFront() {
         return list.getHead().getItem();
     }
 
-    public T getLastItem() {
+    public T peekBack() {
         return list.getTail().getItem();
     }
 
     @Override
     public Iterator<T> iterator() {
         return new DequeIterator();
+    }
+
+    public Iterator<T> descendingIterator() {
+        return new DequeDescendingIterator();
     }
 
     private class DequeIterator implements Iterator<T> {
@@ -72,6 +76,23 @@ public class Deque<T> implements Iterable<T> {
         public T next() {
             T item = currentNode.getItem();
             currentNode = currentNode.getNext();
+            return item;
+        }
+    }
+
+    private class DequeDescendingIterator implements Iterator<T> {
+
+        Node<T> currentNode = list.getTail();
+
+        @Override
+        public boolean hasNext() {
+            return currentNode != null;
+        }
+
+        @Override
+        public T next() {
+            T item = currentNode.getItem();
+            currentNode = currentNode.getPrev();
             return item;
         }
     }
