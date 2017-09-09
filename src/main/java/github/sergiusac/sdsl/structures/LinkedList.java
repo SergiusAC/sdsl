@@ -1,9 +1,11 @@
 package github.sergiusac.sdsl.structures;
 
+import java.util.Iterator;
+
 /**
  * Created by Sergey Cheen on 9/9/17.
  */
-public class LinkedList<T> {
+public class LinkedList<T> implements Iterable<T> {
 
     private Node<T> head;
     private Node<T> tail;
@@ -69,4 +71,25 @@ public class LinkedList<T> {
         }
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new LinkedListIterator();
+    }
+
+    private class LinkedListIterator implements Iterator<T> {
+
+        Node<T> currentNode = head;
+
+        @Override
+        public boolean hasNext() {
+            return currentNode != null;
+        }
+
+        @Override
+        public T next() {
+            T item = currentNode.getItem();
+            currentNode = currentNode.getNext();
+            return item;
+        }
+    }
 }
