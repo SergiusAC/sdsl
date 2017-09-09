@@ -27,26 +27,23 @@ public class LinkedList<T> {
 
     public void addFront(T item) {
         if (isEmpty()) {
-            head = new Node<>(item);;
+            head = new Node<>(item);
             tail = head;
         } else {
             Node<T> oldHead = head;
-            head = new Node<>(item, oldHead, null);;
+            head = new Node<>(item, oldHead, null);
             oldHead.setPrev(head);
         }
         size++;
     }
 
     public void addBack(T item) {
-        Node<T> node = new Node<>(item);
         if (isEmpty()) {
-            head = node;
+            head = new Node<>(item);
             tail = head;
         } else {
             Node<T> oldTail = tail;
-            tail = node;
-            tail.setNext(null);
-            tail.setPrev(oldTail);
+            tail = new Node<>(item, null, oldTail);
             oldTail.setNext(tail);
         }
         size++;
