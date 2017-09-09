@@ -38,7 +38,7 @@ public class Stack<T> implements Iterable<T> {
     }
 
     public T getLastItem() {
-        return list.getHead().getItem();
+        return list.getTail().getItem();
     }
 
     @Override
