@@ -10,6 +10,11 @@ public class Queue<T> implements Iterable<T> {
     private LinkedList<T> list;
     private int size;
 
+    public Queue() {
+        list = new LinkedList<>();
+        size = 0;
+    }
+
     public boolean isEmpty() {
         return list.isEmpty();
     }
@@ -45,7 +50,7 @@ public class Queue<T> implements Iterable<T> {
 
     private class QueueIterator implements Iterator<T> {
 
-        Node<T> currentNode = list.getTail();
+        Node<T> currentNode = list.getHead();
 
         @Override
         public boolean hasNext() {
@@ -55,7 +60,7 @@ public class Queue<T> implements Iterable<T> {
         @Override
         public T next() {
             T item = currentNode.getItem();
-            currentNode = currentNode.getPrev();
+            currentNode = currentNode.getNext();
             return item;
         }
     }
