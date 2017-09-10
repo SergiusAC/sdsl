@@ -28,45 +28,45 @@ public class LinkedList<T> implements Iterable<T> {
     }
 
     public void addFront(T item) {
-        if (isEmpty()) {
-            head = new Node<>(item);
-            tail = head;
-        } else {
-            Node<T> oldHead = head;
-            head = new Node<>(item, oldHead, null);
-            oldHead.setPrev(head);
-        }
+        Node<T> tmp = new Node<>(item, head, null);
+        if (head != null)
+            head.setPrev(tmp);
+        head = tmp;
+        if (tail == null)
+            tail = tmp;
         size++;
     }
 
     public void addBack(T item) {
-        if (isEmpty()) {
-            head = new Node<>(item);
-            tail = head;
-        } else {
-            Node<T> oldTail = tail;
-            tail = new Node<>(item, null, oldTail);
-            oldTail.setNext(tail);
-        }
+        Node<T> tmp = new Node<>(item, null, tail);
+        if (tail != null)
+            tail.setNext(tmp);
+        tail = tmp;
+        if (head == null)
+            head = tmp;
         size++;
     }
 
     public void removeFront() {
-        if (!isEmpty()) {
-            head = head.getNext();
-            if (head != null) {
-                head.setPrev(null);
-            }
-            size--;
+        if (head != null) {
+           Node<T> prev = head;
+           head = head.getNext();
+           if (head != null)
+               head.setPrev(null);
+           if (prev == tail)
+               tail = null;
+           size--;
         }
     }
 
     public void removeBack() {
-        if (!isEmpty()) {
+        if (tail != null) {
+            Node<T> next = tail;
             tail = tail.getPrev();
-            if (tail != null) {
+            if (tail != null)
                 tail.setNext(null);
-            }
+            if (next == head)
+                head = null;
             size--;
         }
     }
