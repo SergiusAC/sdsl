@@ -10,6 +10,11 @@ public class Stack<T> implements Iterable<T> {
     private LinkedList<T> list;
     private int size;
 
+    public Stack() {
+        list = new LinkedList<>();
+        size = 0;
+    }
+
     public boolean isEmpty() {
         return list.isEmpty();
     }
