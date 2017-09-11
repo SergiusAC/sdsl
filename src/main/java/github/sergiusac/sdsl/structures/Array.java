@@ -7,26 +7,26 @@ import java.util.Iterator;
 /**
  * Created by Sergey Cheen on 9/10/17.
  */
-public class Array<T> implements Iterable<T>, IArray<T> {
+public class Array<T extends Comparable> implements Iterable<T>, IArray<T> {
 
     private T[] items;
     private int count;
     private int capacity;
 
     public Array() {
-        items = (T[]) new Object[10];
+        items = (T[]) new Comparable[10];
         count = 0;
         capacity = 10;
     }
 
     public Array(int size) {
-        items = (T[]) new Object[size];
+        items = (T[]) new Comparable[size];
         count = 0;
         capacity = size;
     }
 
     public Array(int size, T item) {
-        items = (T[]) new Object[size];
+        items = (T[]) new Comparable[size];
         for (int i = 0; i < size; i++)
             items[i] = item;
         count = size;
@@ -40,7 +40,7 @@ public class Array<T> implements Iterable<T>, IArray<T> {
     }
 
     public Array(Array<T> otherArray) {
-        items = (T[]) new Object[otherArray.capacity];
+        items = (T[]) new Comparable[otherArray.capacity];
         for (int i = 0; i < otherArray.count; i++)
             items[i] = otherArray.items[i];
         count = otherArray.count;
@@ -87,7 +87,7 @@ public class Array<T> implements Iterable<T>, IArray<T> {
     }
 
     private void resize(int newSize) {
-        T[] newArray = (T[]) new Object[newSize];
+        T[] newArray = (T[]) new Comparable[newSize];
         for (int i = 0; i < (newSize > capacity ? capacity : newSize); i++) {
             newArray[i] = items[i];
         }
