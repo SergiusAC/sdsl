@@ -3,7 +3,7 @@ package github.sergiusac.sdsl.interfaces;
 /**
  * Created by Sergey Cheen on 9/11/17.
  */
-public interface IQueue<T> {
+public interface IQueue<T> extends Iterable<T> {
 
     void enqueue(T item);
 
@@ -12,4 +12,6 @@ public interface IQueue<T> {
     T peek();
 
     boolean isEmpty();
+
+    int getSize();
 }

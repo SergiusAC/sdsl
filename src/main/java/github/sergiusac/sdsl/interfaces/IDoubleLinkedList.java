@@ -3,7 +3,7 @@ package github.sergiusac.sdsl.interfaces;
 /**
  * Created by Sergey Cheen on 9/11/17.
  */
-public interface IDoubleLinkedList<T> {
+public interface IDoubleLinkedList<T> extends Iterable<T> {
 
     void addFront(T item);
 
@@ -16,4 +16,6 @@ public interface IDoubleLinkedList<T> {
     INode<T> getHead();
 
     INode<T> getTail();
+
+    int getSize();
 }

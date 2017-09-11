@@ -3,7 +3,7 @@ package github.sergiusac.sdsl.interfaces;
 /**
  * Created by Sergey Cheen on 9/11/17.
  */
-public interface IDeque<T> {
+public interface IDeque<T> extends Iterable<T> {
 
     void pushFront(T item);
 
@@ -18,4 +18,6 @@ public interface IDeque<T> {
     T peekBack();
 
     boolean isEmpty();
+
+    int getSize();
 }

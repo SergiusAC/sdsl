@@ -4,7 +4,7 @@ package github.sergiusac.sdsl.interfaces;
  * Интерфейс динамического массива.
  * @param <T> тип элементов, которые будут храниться в массиве
  */
-public interface IArray<T> {
+public interface IArray<T> extends Iterable<T> {
 
     /**
      * Метод возвращает размер массива, либо фактическое

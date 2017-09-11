@@ -3,7 +3,7 @@ package github.sergiusac.sdsl.interfaces;
 /**
  * Created by Sergey Cheen on 9/11/17.
  */
-public interface IStack<T> {
+public interface IStack<T> extends Iterable<T> {
 
     void push(T item);
 
@@ -12,4 +12,6 @@ public interface IStack<T> {
     T peek();
 
     boolean isEmpty();
+
+    int getSize();
 }
