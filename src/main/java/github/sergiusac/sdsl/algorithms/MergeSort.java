@@ -21,6 +21,7 @@ public class MergeSort {
     }
 
     private static void merge(Comparable[] arr, int lo, int mid, int hi) {
+        aux = new Comparable[hi - lo + 1];
         int i = lo;
         int j = mid + 1;
         for (int k = lo; k <= hi; k++)
