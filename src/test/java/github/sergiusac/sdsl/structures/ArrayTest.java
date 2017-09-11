@@ -32,8 +32,22 @@ public class ArrayTest {
         arr.set(0, "Q");
         assertEquals("Q", arr.get(0));
 
+        String[] strings = new String[arr.length()];
+        int i = 0;
         for (String s : arr) {
-
+            strings[i] = s;
+            i++;
         }
+        assertArrayEquals(new String[] {"Q", "w", "e", "r", "t"}, strings);
+
+        arr.delete();
+
+        strings = new String[arr.length()];
+        i = 0;
+        for (String s : arr) {
+            strings[i] = s;
+            i++;
+        }
+        assertArrayEquals(new String[] {"Q", "w", "e", "r"}, strings);
     }
 }
