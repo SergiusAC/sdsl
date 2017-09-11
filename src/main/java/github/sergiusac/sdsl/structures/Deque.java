@@ -1,11 +1,13 @@
 package github.sergiusac.sdsl.structures;
 
+import github.sergiusac.sdsl.interfaces.IDeque;
+
 import java.util.Iterator;
 
 /**
  * Created by Sergey Cheen on 9/9/17.
  */
-public class Deque<T> implements Iterable<T> {
+public class Deque<T> implements Iterable<T>, IDeque<T> {
 
     private LinkedList<T> list;
     private int size;
@@ -15,6 +17,7 @@ public class Deque<T> implements Iterable<T> {
         size = 0;
     }
 
+    @Override
     public boolean isEmpty() {
         return list.isEmpty();
     }
@@ -27,16 +30,19 @@ public class Deque<T> implements Iterable<T> {
         return list;
     }
 
+    @Override
     public void pushFront(T item) {
         list.addFront(item);
         size++;
     }
 
+    @Override
     public void pushBack(T item) {
         list.addBack(item);
         size++;
     }
 
+    @Override
     public T popFront() {
         T item = list.getHead().getItem();
         list.removeFront();
@@ -44,6 +50,7 @@ public class Deque<T> implements Iterable<T> {
         return item;
     }
 
+    @Override
     public T popBack() {
         T item = list.getTail().getItem();
         list.removeBack();
@@ -51,10 +58,12 @@ public class Deque<T> implements Iterable<T> {
         return item;
     }
 
+    @Override
     public T peekFront() {
         return list.getHead().getItem();
     }
 
+    @Override
     public T peekBack() {
         return list.getTail().getItem();
     }

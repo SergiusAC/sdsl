@@ -1,9 +1,11 @@
 package github.sergiusac.sdsl.structures;
 
+import github.sergiusac.sdsl.interfaces.INode;
+
 /**
  * Created by Sergey Cheen on 9/9/17.
  */
-public class Node<T> {
+public class Node<T> implements INode<T> {
 
     private T item;
     private Node<T> next;

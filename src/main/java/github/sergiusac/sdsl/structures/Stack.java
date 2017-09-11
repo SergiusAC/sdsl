@@ -1,11 +1,13 @@
 package github.sergiusac.sdsl.structures;
 
+import github.sergiusac.sdsl.interfaces.IStack;
+
 import java.util.Iterator;
 
 /**
  * Created by Sergey Cheen on 9/9/17.
  */
-public class Stack<T> implements Iterable<T> {
+public class Stack<T> implements Iterable<T>, IStack<T> {
 
     private LinkedList<T> list;
     private int size;
@@ -15,6 +17,7 @@ public class Stack<T> implements Iterable<T> {
         size = 0;
     }
 
+    @Override
     public boolean isEmpty() {
         return list.isEmpty();
     }
@@ -27,11 +30,13 @@ public class Stack<T> implements Iterable<T> {
         return list;
     }
 
+    @Override
     public void push(T item) {
         list.addFront(item);
         size++;
     }
 
+    @Override
     public T pop() {
         T item = list.getHead().getItem();
         list.removeFront();
@@ -39,6 +44,7 @@ public class Stack<T> implements Iterable<T> {
         return item;
     }
 
+    @Override
     public T peek() {
         return list.getHead().getItem();
     }

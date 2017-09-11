@@ -1,11 +1,13 @@
 package github.sergiusac.sdsl.structures;
 
+import github.sergiusac.sdsl.interfaces.IDoubleLinkedList;
+
 import java.util.Iterator;
 
 /**
  * Created by Sergey Cheen on 9/9/17.
  */
-public class LinkedList<T> implements Iterable<T> {
+public class LinkedList<T> implements Iterable<T>, IDoubleLinkedList<T> {
 
     private Node<T> head;
     private Node<T> tail;
@@ -15,10 +17,12 @@ public class LinkedList<T> implements Iterable<T> {
         return head == null;
     }
 
+    @Override
     public Node<T> getHead() {
         return head;
     }
 
+    @Override
     public Node<T> getTail() {
         return tail;
     }
@@ -27,6 +31,7 @@ public class LinkedList<T> implements Iterable<T> {
         return size;
     }
 
+    @Override
     public void addFront(T item) {
         Node<T> tmp = new Node<>(item, head, null);
         if (head != null)
@@ -37,6 +42,7 @@ public class LinkedList<T> implements Iterable<T> {
         size++;
     }
 
+    @Override
     public void addBack(T item) {
         Node<T> tmp = new Node<>(item, null, tail);
         if (tail != null)
@@ -47,6 +53,7 @@ public class LinkedList<T> implements Iterable<T> {
         size++;
     }
 
+    @Override
     public void removeFront() {
         if (head != null) {
            Node<T> prev = head;
@@ -59,6 +66,7 @@ public class LinkedList<T> implements Iterable<T> {
         }
     }
 
+    @Override
     public void removeBack() {
         if (tail != null) {
             Node<T> next = tail;
