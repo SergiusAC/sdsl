@@ -8,10 +8,11 @@ public class MergeSort {
     private static Comparable[] aux;
 
     public static void sort(Comparable[] arr) {
+        aux = new Comparable[arr.length];
         sort(arr, 0, arr.length - 1);
     }
 
-    public static void sort(Comparable[] arr, int lo, int hi) {
+    private static void sort(Comparable[] arr, int lo, int hi) {
         if (hi > lo) {
             int mid = lo + (hi - lo) / 2;
             sort(arr, lo, mid);
@@ -21,7 +22,6 @@ public class MergeSort {
     }
 
     private static void merge(Comparable[] arr, int lo, int mid, int hi) {
-        aux = new Comparable[hi - lo + 1];
         int i = lo;
         int j = mid + 1;
         for (int k = lo; k <= hi; k++)
