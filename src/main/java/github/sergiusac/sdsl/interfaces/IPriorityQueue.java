@@ -3,7 +3,7 @@ package github.sergiusac.sdsl.interfaces;
 /**
  * Created by Sergey Cheen on 9/16/17.
  */
-public interface IPriorityQueue<K extends Comparable<K>>
+public interface IPriorityQueue<K extends Comparable>
         extends Iterable<K> {
 
     void insert(K key);
