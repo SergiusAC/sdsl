@@ -47,6 +47,10 @@ public class Array<T extends Comparable> implements Iterable<T>, IArray<T> {
         capacity = otherArray.capacity;
     }
 
+    public T[] toRawArray() {
+        return items;
+    }
+
     @Override
     public int length() {
         return count;
