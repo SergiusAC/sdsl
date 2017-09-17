@@ -1,5 +1,7 @@
 package github.sergiusac.sdsl.algorithms;
 
+import github.sergiusac.sdsl.interfaces.Order;
+
 /**
  * Created by Sergey Cheen on 9/11/17.
  */
@@ -7,6 +9,10 @@ public class Utilities {
 
     public static boolean less(Comparable a, Comparable b) {
         return a.compareTo(b) < 0;
+    }
+
+    public static boolean less(Comparable a, Comparable b, Order order) {
+        return order.less(a, b);
     }
 
     public static void exchange(Comparable[] arr, int i, int j) {
